@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario de Registro</title>
+    <style>
+      /* Estilos CSS */
+      body {
+        font-family: Arial, sans-serif;
+      }
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      input[type="text"],
+      input[type="number"],
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Formulario de Registro</h2>
+    <form id="registrationForm">
+      <!-- Campos para la primera persona -->
+      <label for="nombre1">Nombre:</label>
+      <input type="text" id="nombre1" name="nombre1" required />
+
+      <label for="apellido1">Apellido:</label>
+      <input type="text" id="apellido1" name="apellido1" required />
+
+      <label for="identificacion1">Número de Identificación:</label>
+      <input type="text" id="identificacion1" name="identificacion1" required />
+
+      <label for="telefono1">Teléfono:</label>
+      <input type="text" id="telefono1" name="telefono1" required />
+
+      <label for="direccion1">Dirección:</label>
+      <input type="text" id="direccion1" name="direccion1" required />
+
+      <!-- Selector de bienes para la primera persona -->
+      <label for="bienes1">Bienes:</label>
+      <select id="bienes1" name="bienes1" required>
+        <option value="casa">Casa</option>
+        <option value="apartamento">Apartamento</option>
+        <option value="vehículo">Vehículo</option>
+        <!-- Agrega más opciones según sea necesario -->
+      </select>
+
+      <!-- Campos para la segunda persona -->
+      <label for="nombre2">Nombre:</label>
+      <input type="text" id="nombre2" name="nombre2" required />
+
+      <label for="apellido2">Apellido:</label>
+      <input type="text" id="apellido2" name="apellido2" required />
+
+      <label for="identificacion2">Número de Identificación:</label>
+      <input type="text" id="identificacion2" name="identificacion2" required />
+
+      <label for="telefono2">Teléfono:</label>
+      <input type="text" id="telefono2" name="telefono2" required />
+
+      <label for="direccion2">Dirección:</label>
+      <input type="text" id="direccion2" name="direccion2" required />
+
+      <!-- Selector de bienes para la segunda persona -->
+      <label for="bienes2">Bienes:</label>
+      <select id="bienes2" name="bienes2" required>
+        <option value="casa">Casa</option>
+        <option value="apartamento">Apartamento</option>
+        <option value="vehículo">Vehículo</option>
+        <!-- Agrega más opciones según sea necesario -->
+      </select>
+
+      <input type="submit" value="Enviar" />
+    </form>
+
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
+    <script>
+      // Configura tu Firebase
+      const firebaseConfig = {
+  apiKey: "AIzaSyCHC3c2dHy_eUnW6JTzs5j_BhzuuFIQ6W8",
+  authDomain: "iniciatienda.firebaseapp.com",
+  databaseURL: "https://iniciatienda-default-rtdb.firebaseio.com",
+  projectId: "iniciatienda",
+  storageBucket: "iniciatienda.appspot.com",
+  messagingSenderId: "40495641155",
+  appId: "1:40495641155:web:de45b02a425f61986b1af6",
+  measurementId: "G-EK93CHL80K"
+};
+
+      // Inicializa Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // Referencia a Firestore
+      const db = firebase.firestore();
+
+      // Agregar evento de envío al formulario
+      document
+        .getElementById("registrationForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Evita que el formulario se envíe por defecto
+
+          // Obtener los valores de los campos de la primera persona
+          const nombre1 = document.getElementById("nombre1").value;
+          const apellido1 = document.getElementById("apellido1").value;
+          const identificacion1 =
+            document.getElementById("identificacion1").value;
+          const telefono1 = document.getElementById("telefono1").value;
+          const direccion1 = document.getElementById("direccion1").value;
+          const bienes1 = document.getElementById("bienes1").value;
+
+          // Obtener los valores de los campos de la segunda persona
+          const nombre2 = document.getElementById("nombre2").value;
+          const apellido2 = document.getElementById("apellido2").value;
+          const identificacion2 =
+            document.getElementById("identificacion2").value;
+          const telefono2 = document.getElementById("telefono2").value;
+          const direccion2 = document.getElementById("direccion2").value;
+          const bienes2 = document.getElementById("bienes2").value;
+
+          // Agregar los datos de la primera persona a Firebase
+          db.collection("personas")
+            .add({
+              nombre: nombre1,
+              apellido: apellido1,
+              identificacion: identificacion1,
+              telefono: telefono1,
+              direccion: direccion1,
+              bienes: bienes1,
+            })
+            .then(() => {
+              console.log(
+                "Datos de la primera persona agregados correctamente"
+              );
+            })
+            .catch((error) => {
+              console.error(
+                "Error al agregar datos de la primera persona: ",
+                error
+              );
+            });
+
+          // Agregar los datos de la segunda persona a Firebase
+          db.collection("personas")
+            .add({
+              nombre: nombre2,
+              apellido: apellido2,
+              identificacion: identificacion2,
+              telefono: telefono2,
+              direccion: direccion2,
+              bienes: bienes2,
+            })
+            .then(() => {
+              console.log(
+                "Datos de la segunda persona agregados correctamente"
+              );
+            })
+            .catch((error) => {
+              console.error(
+                "Error al agregar datos de la segunda persona: ",
+                error
+              );
+            });
+        });
+    </script>
+  </body>
+</html>
