@@ -52,6 +52,12 @@
         input[type="submit"]:hover {
             background-color: #45a049;
         }
+        #idgeerarword{
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            z-index: 100;
+        }
 </style>
 <body>
     <h2>Registro  </h2>
@@ -88,8 +94,9 @@
 
         <!-- Botón para enviar los datos -->
         <input type="submit" value="Enviar">
-    </form>
 
+    </form>
+ <button id="idgeerarword" onclick="location.href='/word2.html'">word2</button>
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
