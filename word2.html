@@ -1,190 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulario de Registro</title>
-    <style>
-      /* Estilos CSS */
-      body {
-        font-family: Arial, sans-serif;
-      }
-      form {
-        max-width: 400px;
-        margin: 0 auto;
-      }
-      label {
-        display: block;
-        margin-bottom: 5px;
-      }
-      input[type="text"],
-      input[type="number"],
-      select {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-      }
-      input[type="submit"] {
-        background-color: #4caf50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      input[type="submit"]:hover {
-        background-color: #45a049;
-      }
-    </style>
-  </head>
-  <body>
-    <h2>Formulario de Registro</h2>
-    <form id="registrationForm">
-      <!-- Campos para la primera persona -->
-      <label for="nombre1">Nombre:</label>
-      <input type="text" id="nombre1" name="nombre1" required />
-
-      <label for="apellido1">Apellido:</label>
-      <input type="text" id="apellido1" name="apellido1" required />
-
-      <label for="identificacion1">Número de Identificación:</label>
-      <input type="text" id="identificacion1" name="identificacion1" required />
-
-      <label for="telefono1">Teléfono:</label>
-      <input type="text" id="telefono1" name="telefono1" required />
-
-      <label for="direccion1">Dirección:</label>
-      <input type="text" id="direccion1" name="direccion1" required />
-
-      <!-- Selector de bienes para la primera persona -->
-      <label for="bienes1">Bienes:</label>
-      <select id="bienes1" name="bienes1" required>
-        <option value="casa">Casa</option>
-        <option value="apartamento">Apartamento</option>
-        <option value="vehículo">Vehículo</option>
-        <!-- Agrega más opciones según sea necesario -->
-      </select>
-
-      <!-- Campos para la segunda persona -->
-      <label for="nombre2">Nombre:</label>
-      <input type="text" id="nombre2" name="nombre2" required />
-
-      <label for="apellido2">Apellido:</label>
-      <input type="text" id="apellido2" name="apellido2" required />
-
-      <label for="identificacion2">Número de Identificación:</label>
-      <input type="text" id="identificacion2" name="identificacion2" required />
-
-      <label for="telefono2">Teléfono:</label>
-      <input type="text" id="telefono2" name="telefono2" required />
-
-      <label for="direccion2">Dirección:</label>
-      <input type="text" id="direccion2" name="direccion2" required />
-
-      <!-- Selector de bienes para la segunda persona -->
-      <label for="bienes2">Bienes:</label>
-      <select id="bienes2" name="bienes2" required>
-        <option value="casa">Casa</option>
-        <option value="apartamento">Apartamento</option>
-        <option value="vehículo">Vehículo</option>
-        <!-- Agrega más opciones según sea necesario -->
-      </select>
-
-      <input type="submit" value="Enviar" />
-    </form>
-
-    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir HTML a Word</title>
+</head>
+<body>
+    <div id="content">
+        <h1>PODER ESPECIAL</h1>
+        <p>Yo, [Nombre Completo del Poderdante], mayor de edad, identificado con [tipo y número de documento de identidad], domiciliado en [dirección completa], por medio del presente documento, otorgo PODER ESPECIAL a [Nombre Completo del Apoderado], mayor de edad, identificado con [tipo y número de documento de identidad], domiciliado en [dirección completa], para que, en mi nombre y representación, realice las siguientes acciones relacionadas con mi proceso de divorcio:</p>
+        <ol>
+            <li>Presentar la demanda de divorcio ante el Juzgado competente.</li>
+            <li>Comparecer ante las audiencias y demás diligencias que se realicen en el curso del proceso.</li>
+            <li>Aceptar o rechazar acuerdos, convenios y propuestas relacionadas con el divorcio, incluyendo pero no limitado a, la división de bienes, custodia de hijos, pensión alimenticia y cualquier otra cuestión derivada del matrimonio.</li>
+            <li>Firmar documentos y escritos necesarios para llevar a cabo el proceso de divorcio.</li>
+            <li>Realizar cualquier otra gestión necesaria para la consecución de los fines del presente poder.</li>
+        </ol>
+        <p>Este poder es otorgado con las más amplias facultades para que el apoderado actúe en mi nombre y representación en todos los asuntos relacionados con mi divorcio.</p>
+        <p>En [Ciudad], a [fecha].</p>
+        <p>[Firma del Poderdante]<br>[Nombre Completo del Poderdante]<br>[Documento de Identidad del Poderdante]</p>
+        <p>[Firma del Apoderado]<br>[Nombre Completo del Apoderado]<br>[Documento de Identidad del Apoderado]</p>
+        <h2>Consideraciones Adicionales</h2>
+        <ul>
+            <li>Notarización: En muchos lugares, este documento debe ser notariado. Consulta con un abogado local si es necesario en tu jurisdicción.</li>
+            <li>Consentimiento del Apoderado: Es recomendable que el apoderado firme el documento para expresar su consentimiento y aceptación de las responsabilidades otorgadas.</li>
+            <li>Legislación Local: Las leyes varían según el país y, a veces, según la región dentro del país. Es fundamental que el poder de representación cumpla con todas las leyes y reglamentos aplicables.</li>
+        </ul>
+        <p>Si tienes alguna duda o necesitas más información, no dudes en consultarme.</p>
+    </div>
+    <button id="convertBtn">Convertir a Word</button>
+   <!--  <img src="http://t1.gstatic.com/licensed-image?q=tbn:ANd9GcT515JhCeA0rherkIga0J4a3WtNJCFrvMzHYCHEtFW9Moe082VSp_-il10TQ9_bhCcHgdbU3PnjDlU6xT7JD3Q" alt="">
+ -->
+ <div id="spaceId"></div>
+    <script src="indexhtml.js"></script>
     <script>
-      // Configura tu Firebase
-      const firebaseConfig = {
-  apiKey: "AIzaSyCHC3c2dHy_eUnW6JTzs5j_BhzuuFIQ6W8",
-  authDomain: "iniciatienda.firebaseapp.com",
-  databaseURL: "https://iniciatienda-default-rtdb.firebaseio.com",
-  projectId: "iniciatienda",
-  storageBucket: "iniciatienda.appspot.com",
-  messagingSenderId: "40495641155",
-  appId: "1:40495641155:web:de45b02a425f61986b1af6",
-  measurementId: "G-EK93CHL80K"
+        document.getElementById('convertBtn').addEventListener('click', function() {
+            const content = document.getElementById('content').innerHTML;
+            const converted = htmlDocx.asBlob(content);
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(converted);
+            link.download = 'documento_word.docx';
+            link.click();
+            html2pdf(document.body);
+        });
+        function addScript(url) {
+     var script = document.createElement('script');
+     script.type = 'application/javascript';
+     script.src = url;
+     document.head.appendChild(script);
+ }
+ addScript('https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js');
+
+ function resizeImage(imageUrl,idcanvas="canvas") {
+
+//const imageUrl = document.getElementById("imageUrl").value;
+const canvas = document.createElement("canvas");
+
+canvas.width = 500;
+canvas.height = 500;
+
+canvas.id = idcanvas;
+
+canvas.style.display = "none";
+
+document.body.appendChild(canvas);
+
+const ctx = canvas.getContext("2d");
+document.getElementById("spaceId").appendChild(canvas);
+const maxSize = 500;
+
+const image = new Image();
+image.crossOrigin = "Anonymous"; // Permitir cargar imágenes de otros dominios
+image.onload = function () {
+  let width = this.width;
+  let height = this.height;
+
+  // Redimensionar si la imagen es más grande que el tamaño máximo
+  if (width > maxSize || height > maxSize) {
+    if (width > height) {
+      height *= maxSize / width;
+      width = maxSize;
+    } else {
+      width *= maxSize / height;
+      height = maxSize;
+    }
+  }
+
+  // Dibujar la imagen en el canvas
+  canvas.width = width;
+  canvas.height = height;
+  ctx.drawImage(image, 0, 0, width, height);
+
+  // Mostrar el canvas
+  canvas.style.display = "block";
 };
 
-      // Inicializa Firebase
-      firebase.initializeApp(firebaseConfig);
+image.src = imageUrl;
+}
 
-      // Referencia a Firestore
-      const db = firebase.firestore();
-
-      // Agregar evento de envío al formulario
-      document
-        .getElementById("registrationForm")
-        .addEventListener("submit", function (event) {
-          event.preventDefault(); // Evita que el formulario se envíe por defecto
-
-          // Obtener los valores de los campos de la primera persona
-          const nombre1 = document.getElementById("nombre1").value;
-          const apellido1 = document.getElementById("apellido1").value;
-          const identificacion1 =
-            document.getElementById("identificacion1").value;
-          const telefono1 = document.getElementById("telefono1").value;
-          const direccion1 = document.getElementById("direccion1").value;
-          const bienes1 = document.getElementById("bienes1").value;
-
-          // Obtener los valores de los campos de la segunda persona
-          const nombre2 = document.getElementById("nombre2").value;
-          const apellido2 = document.getElementById("apellido2").value;
-          const identificacion2 =
-            document.getElementById("identificacion2").value;
-          const telefono2 = document.getElementById("telefono2").value;
-          const direccion2 = document.getElementById("direccion2").value;
-          const bienes2 = document.getElementById("bienes2").value;
-
-          // Agregar los datos de la primera persona a Firebase
-          db.collection("personas")
-            .add({
-              nombre: nombre1,
-              apellido: apellido1,
-              identificacion: identificacion1,
-              telefono: telefono1,
-              direccion: direccion1,
-              bienes: bienes1,
-            })
-            .then(() => {
-              console.log(
-                "Datos de la primera persona agregados correctamente"
-              );
-            })
-            .catch((error) => {
-              console.error(
-                "Error al agregar datos de la primera persona: ",
-                error
-              );
-            });
-
-          // Agregar los datos de la segunda persona a Firebase
-          db.collection("personas")
-            .add({
-              nombre: nombre2,
-              apellido: apellido2,
-              identificacion: identificacion2,
-              telefono: telefono2,
-              direccion: direccion2,
-              bienes: bienes2,
-            })
-            .then(() => {
-              console.log(
-                "Datos de la segunda persona agregados correctamente"
-              );
-            })
-            .catch((error) => {
-              console.error(
-                "Error al agregar datos de la segunda persona: ",
-                error
-              );
-            });
-        });
+setTimeout(()=>{
+    resizeImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4PEBrntLZVdyilJTy4wIyiop8pT66A2X-0A&s");
+},1000);
     </script>
-  </body>
+</body>
 </html>
